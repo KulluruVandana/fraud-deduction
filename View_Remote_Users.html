@@ -1,0 +1,90 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+<style>
+
+/* PAGE TITLE */
+.page-title{
+    text-align:center;
+    font-size:28px;
+    font-weight:700;
+    color:#1c3f94;
+    margin-bottom:30px;
+}
+
+/* MAIN CARD */
+.users-card{
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* TABLE */
+.table thead{
+    background:#1c3f94;
+    color:white;
+}
+
+.table td{
+    font-weight:500;
+}
+
+.table tbody tr:hover{
+    background:#f2f6ff;
+    transition:0.3s;
+}
+
+</style>
+
+<div class="container">
+
+<h2 class="page-title">
+View All Remote Users
+</h2>
+
+<div class="users-card">
+
+<div class="table-responsive">
+
+<table class="table table-bordered text-center align-middle">
+
+<thead>
+<tr>
+<th>Username</th>
+<th>Email</th>
+<th>Gender</th>
+<th>Address</th>
+<th>Mobile</th>
+<th>Country</th>
+<th>State</th>
+<th>City</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for o in objects %}
+<tr>
+<td>{{o.username}}</td>
+<td>{{o.email}}</td>
+<td>{{o.gender}}</td>
+<td>{{o.address}}</td>
+<td>{{o.phoneno}}</td>
+<td>{{o.country}}</td>
+<td>{{o.state}}</td>
+<td>{{o.city}}</td>
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,125 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+<style>
+
+/* PAGE TITLE */
+.page-title{
+    text-align:center;
+    font-size:28px;
+    font-weight:700;
+    color:#1c3f94;
+    margin-bottom:30px;
+}
+
+/* CARD DESIGN */
+.data-card{
+    background:white;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* TABLE STYLE */
+.table thead{
+    background:#1c3f94;
+    color:white;
+}
+
+.table{
+    font-size:14px;
+}
+
+.table tbody tr:hover{
+    background:#f2f6ff;
+    transition:0.3s;
+}
+
+/* SCROLL TABLE */
+.table-responsive{
+    max-height:500px;
+    overflow:auto;
+}
+
+</style>
+
+<div class="container">
+
+<h2 class="page-title">
+View Credit Card Fraud Prediction Details
+</h2>
+
+<div class="data-card">
+
+<div class="table-responsive">
+
+<table class="table table-bordered text-center align-middle">
+
+<thead>
+<tr>
+<th>Trans Date</th>
+<th>CC Num</th>
+<th>Category</th>
+<th>Amount</th>
+<th>First</th>
+<th>Last</th>
+<th>Gender</th>
+<th>Street</th>
+<th>City</th>
+<th>State</th>
+<th>Zip</th>
+<th>User Lat</th>
+<th>User Long</th>
+<th>City Pop</th>
+<th>Job</th>
+<th>DOB</th>
+<th>Trans Num</th>
+<th>Merch Lat</th>
+<th>Merch Long</th>
+<th>Prediction</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for object in list_objects %}
+<tr>
+<td>{{object.trans_date}}</td>
+<td>{{object.cc_num}}</td>
+<td>{{object.category}}</td>
+<td>{{object.AMT_TRANS}}</td>
+<td>{{object.first}}</td>
+<td>{{object.last}}</td>
+<td>{{object.gender}}</td>
+<td>{{object.street}}</td>
+<td>{{object.city}}</td>
+<td>{{object.state}}</td>
+<td>{{object.zip}}</td>
+<td>{{object.User_Lat}}</td>
+<td>{{object.User_Long}}</td>
+<td>{{object.city_pop}}</td>
+<td>{{object.Job}}</td>
+<td>{{object.Dob}}</td>
+<td>{{object.trans_num}}</td>
+<td>{{object.merch_lat}}</td>
+<td>{{object.merch_long}}</td>
+
+<td>
+<b style="color:#1c3f94;">
+{{object.Prediction}}
+</b>
+</td>
+
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+</div>
+
+</div>
+
+{% endblock %}

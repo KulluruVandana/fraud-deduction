@@ -1,0 +1,92 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+<style>
+
+/* PAGE TITLE */
+.page-title{
+    text-align:center;
+    font-size:28px;
+    font-weight:700;
+    color:#1c3f94;
+    margin-bottom:30px;
+}
+
+/* CARD */
+.data-card{
+    background:white;
+    border-radius:15px;
+    padding:35px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* TABLE */
+.table thead{
+    background:#1c3f94;
+    color:white;
+}
+
+.table{
+    font-size:18px;
+}
+
+.table tbody tr:hover{
+    background:#eef3ff;
+    transition:0.3s;
+}
+
+/* BADGE STYLE */
+.ratio-badge{
+    background:#1c3f94;
+    color:white;
+    padding:6px 14px;
+    border-radius:20px;
+    font-weight:600;
+}
+
+</style>
+
+<div class="container">
+
+<h2 class="page-title">
+Credit Card Fraud Prediction Found Ratio Details
+</h2>
+
+<div class="data-card">
+
+<table class="table table-bordered text-center align-middle">
+
+<thead>
+<tr>
+<th>Fraud Type</th>
+<th>Detection Ratio</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for object in objs %}
+<tr>
+
+<td style="font-weight:600;">
+{{object.names}}
+</td>
+
+<td>
+<span class="ratio-badge">
+{{object.ratio}}
+</span>
+</td>
+
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+{% endblock %}

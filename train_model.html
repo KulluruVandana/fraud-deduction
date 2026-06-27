@@ -1,0 +1,83 @@
+{% extends 'SProvider/Header.html' %}
+{% block researchblock %}
+
+<style>
+
+/* PAGE TITLE */
+.page-title{
+    text-align:center;
+    font-size:28px;
+    font-weight:700;
+    color:#1c3f94;
+    margin-bottom:30px;
+}
+
+/* RESULT CARD */
+.result-card{
+    background:white;
+    border-radius:15px;
+    padding:35px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* TABLE STYLE */
+.table thead{
+    background:#1c3f94;
+    color:white;
+}
+
+.table td{
+    font-weight:500;
+    font-size:16px;
+}
+
+.table tbody tr:hover{
+    background:#f2f6ff;
+    transition:0.3s;
+}
+
+</style>
+
+<div class="container">
+
+<h2 class="page-title">
+Credit Card Datasets Trained & Tested Results
+</h2>
+
+<div class="result-card">
+
+<div class="table-responsive">
+
+<table class="table table-bordered text-center align-middle">
+
+<thead>
+<tr>
+<th>Model Type</th>
+<th>Accuracy (%)</th>
+</tr>
+</thead>
+
+<tbody>
+
+{% for object in objs %}
+<tr>
+<td>{{object.names}}</td>
+<td>
+<b style="color:#1c3f94;">
+{{object.ratio}}
+</b>
+</td>
+</tr>
+{% endfor %}
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+{% endblock %}

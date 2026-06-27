@@ -1,0 +1,183 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Service Provider Login</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#f5f7fb;
+}
+
+/* NAVBAR */
+.navbar{
+    background:#0b3d91;
+}
+
+.navbar a{
+    color:white !important;
+    font-weight:600;
+    font-size:18px;
+}
+
+/* HERO */
+.hero{
+    background:linear-gradient(135deg,#0b3d91,#00c6ff);
+    color:white;
+    padding:70px;
+    text-align:center;
+}
+
+.hero h1{
+    font-weight:700;
+}
+
+/* LOGIN CARD */
+.login-card{
+    background:white;
+    border-radius:15px;
+    padding:40px;
+    margin-top:-50px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* IMAGE */
+.login-img{
+    width:100%;
+    border-radius:12px;
+}
+
+/* INPUT */
+.form-control{
+    padding:12px;
+    border-radius:8px;
+}
+
+/* BUTTON */
+.login-btn{
+    background:#0b3d91;
+    color:white;
+    font-weight:600;
+    border:none;
+    border-radius:8px;
+}
+
+.login-btn:hover{
+    background:#072c6b;
+}
+
+/* FOOTER */
+.footer{
+    margin-top:40px;
+    background:#0b3d91;
+    color:white;
+    text-align:center;
+    padding:15px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg">
+<div class="container">
+
+<a class="navbar-brand text-white">
+UPI Fraud Transaction Detection using Machine Learning
+</a>
+
+<div class="ms-auto">
+<a href="{% url 'index' %}" class="me-3">Home</a>
+<a href="{% url 'login' %}" class="me-3">Remote User</a>
+<a href="{% url 'serviceproviderlogin' %}">
+Service Provider
+</a>
+</div>
+
+</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+<h1>Service Provider Login</h1>
+<p>Secure Administrative Access</p>
+</div>
+
+<!-- LOGIN SECTION -->
+<div class="container">
+
+<div class="login-card">
+
+<div class="row align-items-center">
+
+<!-- IMAGE -->
+<div class="col-md-6">
+<img src="{% static 'login.jpg' %}" class="login-img">
+</div>
+
+<!-- FORM -->
+<div class="col-md-6">
+
+<h4 class="mb-4" style="color:#0b3d91;">
+Login Using Your Account
+</h4>
+
+<form method="POST">
+{% csrf_token %}
+
+<div class="mb-3">
+<input type="text" name="username"
+class="form-control"
+placeholder="Username"
+required>
+</div>
+
+<div class="mb-3">
+<input type="password" name="password"
+class="form-control"
+placeholder="Password"
+required>
+</div>
+
+<div class="d-grid">
+<input type="submit"
+name="submit1"
+value="Login"
+class="btn login-btn">
+</div>
+
+</form>
+
+<div class="text-center mt-3">
+<a href="{% url 'login' %}">
+User Login
+</a>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+© UPI Fraud Detection
+</div>
+
+</body>
+</html>
